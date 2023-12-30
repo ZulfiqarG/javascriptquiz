@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Coding Quiz</title>
+
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+
+<body>
+  <div class="scores"><a href="highscores.html">View Highscores</a></div>
+
+  <div class="timer">Time: <span id="time">0</span> seconds</div>
+
+  <div class="wrapper">
+    <div id="start-screen" class="start">
+      <h1>Coding Quiz Challenge</h1>
+      <p>
+        Try to answer the following code-related questions within the time
+        limit. Keep in mind that incorrect answers will penalize your
+        score/time by ten seconds!
+      </p>
+      <button id="start-button">Start Quiz</button>
+    </div>
+
+    <div id="questions" class="hide">
+      <h2 id="question-title">This is the Question</h2>
+      <h3 id="qCode">This is the code</h3>
+      <img src="assets/images/Q7_Text.png" alt="Q7_Code" id="Q7_Code" style="display:none">
+      <div name="choices" id="choices">
+        <button id="ansA">A</button>
+        <button id="ansB">B</button>
+        <button id="ansC">C</button>
+        <button id="ansD">D</button>
+
+      </div>
+      <h5 id="qResult"></h5>
+
+    </div>
+
+    <div id="end-screen" class="hide">
+      <h2>All done!</h2>
+      <p>Your final score is <span id="final-score"></span>.</p>
+      <p>
+        <form action="highscores.html">
+
+          Enter Name: <input type="text" id="userName" max="10" />
+          <button id="submit" onclick="getUserName()">Submit Score To Scoreboard</button>
+
+        </form>
+      </p>
+    </div>
+    <script>
+      function getUserName() {
+        var userNameInput = document.getElementById('userName').value;
+        
+        localStorage.setItem('userName', userNameInput)
+      }
+    </script>
+
+    <div id="feedback" class="feedback hide"></div>
+  </div>
+
+
+
+
+
+
+
+
+  <audio autoplay>
+    <source id="correctAU" src="assets/sfx/correct.wav">
+    <source id="incorrectAU" src="assets/sfx/incorrect.wav">
+
+  </audio>
+  <script src="./assets/js/questions.js"></script>
+  <!-- <script src="./assets/js/logic.js"></script> -->
+</body>
+
+</html>
